@@ -36,9 +36,14 @@ class Pagina_Lista extends StatelessWidget {
           SizedBox(height: 120,
           child: ListView(
             shrinkWrap: true,
-            children: [
-            Text("Mestre Jedi Dieimes Nunes"),
-            ElevatedButton(onPressed: () {}, child: Text("Clique aqui"),),
+            children: const[
+              ListTile(
+                title: Text(" O professor Dieimes é legal com seus filhos."),
+                subtitle: Text("Você concorda ?"),
+                leading: Icon(Icons.question_mark, size: 30,),
+              ),
+           /* Text("Mestre Jedi Dieimes Nunes"),
+            ElevatedButton(onPressed: () {}, child: Text("Clique aqui"),),*/
             ],
           ),
           ),
