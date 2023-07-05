@@ -33,14 +33,49 @@ class Pagina_Lista extends StatelessWidget {
           SizedBox(height: 40,),
 
           SizedBox(height: 40,),
-          SizedBox(height: 120,
+          SizedBox(height: 320,
           child: ListView(
             shrinkWrap: true,
-            children: const[
+            children: [
               ListTile(
                 title: Text(" O professor Dieimes é legal com seus filhos."),
                 subtitle: Text("Você concorda ?"),
                 leading: Icon(Icons.question_mark, size: 30,),
+                onTap: () {
+                  print("BANANA");
+                },
+              ),
+               ListTile(
+                title: Text("O professor Dieimes é legal com seus filhos ."),
+                subtitle: Text("Você concorda ?"),
+                leading: Icon(Icons.animation_rounded , size: 30,),
+                onTap: () {
+                  print("MAÇÃ");
+                },
+              ),
+               ListTile(
+                title: Text(" O professor Dieimes é legal com seus filhos."),
+                subtitle: Text("Você concorda ?"),
+                leading: Icon(Icons.app_registration_rounded , size: 30,),
+                onTap: () {
+                  print("MELANCIA");
+                },
+              ),
+               ListTile(
+                title: Text(" O professor Dieimes é legal com seus filhos."),
+                subtitle: Text("Você concorda ?"),
+                leading: Icon(Icons.auto_stories_rounded , size: 30,),
+                onTap: () {
+                  print("GOIABA");
+                },
+              ),
+               ListTile(
+                title: Text(" O professor Dieimes é legal com seus filhos."),
+                subtitle: Text("Você concorda ?"),
+                leading: Icon(Icons.bolt_outlined , size: 30,),
+                onTap: () {
+                  print("MANGA");
+                },
               ),
            /* Text("Mestre Jedi Dieimes Nunes"),
             ElevatedButton(onPressed: () {}, child: Text("Clique aqui"),),*/
