@@ -35,8 +35,10 @@ class Pagina_Lista extends StatelessWidget {
           SizedBox(height: 40,),
           SizedBox(height: 120,
           child: ListView(
+            shrinkWrap: true,
             children: [
-              
+            Text("Mestre Jedi Dieimes Nunes"),
+            ElevatedButton(onPressed: () {}, child: Text("Clique aqui"),),
             ],
           ),
           ),
