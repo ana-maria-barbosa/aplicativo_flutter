@@ -1,7 +1,8 @@
-import 'dart:html';
 
+import 'package:app_lista_tarefas/modelo/objeto_data_hora.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import '../widgets/itens_lista.dart';
 
 final TextEditingController email_controle = TextEditingController();
 
@@ -13,8 +14,7 @@ class Pagina_Lista extends StatefulWidget {
 class _Pagina_ListaState extends State<Pagina_Lista> {
   final TextEditingController mensagensControlador = TextEditingController();
 
-
-  List<String> Mensagens = [];
+  List<Data_Hora> Mensagens = [];
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +38,11 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                   onPressed: () {
                     String qualquercoisa = mensagensControlador.text;
                     setState(() {
-                      Mensagens.add(qualquercoisa);
-                      mensagensControlador.clear();
+                      Data_Hora item_data_hora = Data_Hora(
+                        titulo: qualquercoisa, data_hora: DateTime.now());
+                      Mensagens.add(item_data_hora);
                     });
+                    mensagensControlador.clear();
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(255, 0, 192, 250),
@@ -63,21 +65,22 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
               child: ListView(
                 shrinkWrap: true,
                 children: [
-                  for (String mensagem in Mensagens)
-                    ListTile(
+                  for (Data_Hora mensagem_controle in Mensagens)
+                   tudoItemLista(
+                    mensagem_data_hora: mensagem_controle,
+                   ),
+                  /* ListTile(
                       title:
                           Text(mensagem),
-                      subtitle: Text("Você concorda ?"),
+                      subtitle: Text("Feito por Ana Maria"),
                       leading: Icon(
                         Icons.question_mark,
                         size: 30,
                       ),
                       onTap: () {
-                        print("Mensagem: $mensagem   ");
+                        print("Mensagem: $mensagem   "); 
                       },
-                    ),
-                  /* Text("Mestre Jedi Dieimes Nunes"),
-            ElevatedButton(onPressed: () {}, child: Text("Clique aqui"),),*/
+                    ),*/
                 ],
               ),
             ),
