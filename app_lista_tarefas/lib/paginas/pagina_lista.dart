@@ -45,7 +45,7 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                     mensagensControlador.clear();
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 0, 192, 250),
+                    primary: Color.fromARGB(204, 0, 192, 250),
                   ),
                   child: Icon(
                     Icons.add,
@@ -103,7 +103,7 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 0, 192, 250),
+                    primary: Color.fromARGB(204, 0, 192, 250),
                   ),
                   child: Text("Limpar"),
                 ),
