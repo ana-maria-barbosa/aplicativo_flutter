@@ -1,4 +1,3 @@
-
 import 'package:app_lista_tarefas/modelo/objeto_data_hora.dart';
 import 'package:flutter/material.dart';
 
@@ -39,13 +38,13 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                     String qualquercoisa = mensagensControlador.text;
                     setState(() {
                       Data_Hora item_data_hora = Data_Hora(
-                        titulo: qualquercoisa, data_hora: DateTime.now());
+                          titulo: qualquercoisa, data_hora: DateTime.now());
                       Mensagens.add(item_data_hora);
                     });
                     mensagensControlador.clear();
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(204, 0, 192, 250),
+                    primary: Color.fromARGB(204, 125, 14, 243),
                   ),
                   child: Icon(
                     Icons.add,
@@ -66,21 +65,10 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                 shrinkWrap: true,
                 children: [
                   for (Data_Hora mensagem_controle in Mensagens)
-                   tudoItemLista(
-                    mensagem_data_hora: mensagem_controle,
-                   ),
-                  /* ListTile(
-                      title:
-                          Text(mensagem),
-                      subtitle: Text("Feito por Ana Maria"),
-                      leading: Icon(
-                        Icons.question_mark,
-                        size: 30,
-                      ),
-                      onTap: () {
-                        print("Mensagem: $mensagem   "); 
-                      },
-                    ),*/
+                    tudoItemLista(
+                      mensagem_data_hora: mensagem_controle,
+                      item_deletar_tarefas: deletar_tarefas,
+                    ),
                 ],
               ),
             ),
@@ -103,7 +91,7 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(204, 0, 192, 250),
+                    primary: Color.fromARGB(204, 125, 14, 243),
                   ),
                   child: Text("Limpar"),
                 ),
@@ -111,6 +99,21 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void deletar_tarefas(Data_Hora item_data_hora) {
+    setState(() {
+      Mensagens.remove(item_data_hora);
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          "Tarefa ${item_data_hora.titulo} foi removida com sucesso",
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+        ),
+        backgroundColor: Color.fromARGB(204, 125, 14, 243),
       ),
     );
   }
