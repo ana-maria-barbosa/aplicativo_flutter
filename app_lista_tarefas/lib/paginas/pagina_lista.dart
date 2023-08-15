@@ -14,6 +14,8 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
   final TextEditingController mensagensControlador = TextEditingController();
 
   List<Data_Hora> Mensagens = [];
+  Data_Hora? deletar_itens;
+  int? posicao_atual_deletar;
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,6 +106,8 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
   }
 
   void deletar_tarefas(Data_Hora item_data_hora) {
+    deletar_itens = item_data_hora;
+    posicao_atual_deletar = Mensagens.indexOf(item_data_hora);
     setState(() {
       Mensagens.remove(item_data_hora);
     });
@@ -114,6 +118,14 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
           style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
         ),
         backgroundColor: Color.fromARGB(204, 125, 14, 243),
+        action: SnackBarAction(
+          label: "Desfazer",
+          onPressed: () {
+            setState(() {
+              Mensagens.insert(posicao_atual_deletar!, deletar_itens!);
+            });
+          },
+        ),
       ),
     );
   }
