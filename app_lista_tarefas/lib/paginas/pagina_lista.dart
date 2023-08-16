@@ -82,7 +82,8 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                 Expanded(
                     child: TextField(
                   decoration: InputDecoration(
-                    labelText: "Você possui 0 tarefas pendentes",
+                    labelText:
+                        "Você possui ${Mensagens.length} tarefas pendentes",
                   ),
                 )),
                 SizedBox(width: 7),
@@ -127,6 +128,29 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
           },
         ),
       ),
+    );
+  }
+
+  void mensagem_confirmacao() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Limpar tudo?"),
+          content:
+              Text("Você tem certeza que deseja apagar todas as tarefas? "),
+          actions: [
+            TextButton(
+              onPressed: () {},
+              child: Text("Cancelar"),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text("Limpar tudo"),
+            ),
+          ],
+        );
+      },
     );
   }
 }
