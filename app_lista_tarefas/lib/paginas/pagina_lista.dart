@@ -91,6 +91,7 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                   onPressed: () {
                     setState(() {
                       Mensagens.clear();
+                      mensagem_confirmacao();
                     });
                   },
                   style: ElevatedButton.styleFrom(
@@ -141,11 +142,20 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
               Text("Você tem certeza que deseja apagar todas as tarefas? "),
           actions: [
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  Navigator.pop(context);
+                });
+              },
               child: Text("Cancelar"),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  Mensagens.clear();
+                  Navigator.pop(context);
+                });
+              },
               child: Text("Limpar tudo"),
             ),
           ],
