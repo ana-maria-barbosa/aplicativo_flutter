@@ -89,10 +89,7 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                 SizedBox(width: 7),
                 ElevatedButton(
                   onPressed: () {
-                    setState(() {
-                      Mensagens.clear();
                       mensagem_confirmacao();
-                    });
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(204, 125, 14, 243),
