@@ -1,4 +1,5 @@
 import 'package:app_lista_tarefas/modelo/objeto_data_hora.dart';
+import 'package:app_lista_tarefas/repositorio/repositorio.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/itens_lista.dart';
@@ -12,6 +13,7 @@ class Pagina_Lista extends StatefulWidget {
 
 class _Pagina_ListaState extends State<Pagina_Lista> {
   final TextEditingController mensagensControlador = TextEditingController();
+  final Repositorio objeto_repositorio = Repositorio();
 
   List<Data_Hora> Mensagens = [];
   Data_Hora? deletar_itens;
@@ -89,7 +91,7 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                 SizedBox(width: 7),
                 ElevatedButton(
                   onPressed: () {
-                      mensagem_confirmacao();
+                    mensagem_confirmacao();
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(204, 125, 14, 243),

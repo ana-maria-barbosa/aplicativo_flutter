@@ -3,4 +3,11 @@ class Data_Hora{
 
   String titulo;
   DateTime data_hora;
+
+  Map<String, dynamic> toJson(){
+    return{
+      "titulo": titulo,
+      "data_hora": data_hora.toIso8601String(),
+    };
+  }
 }
