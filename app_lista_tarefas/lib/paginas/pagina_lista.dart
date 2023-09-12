@@ -15,6 +15,7 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
   final TextEditingController mensagensControlador = TextEditingController();
   final Repositorio objeto_repositorio = Repositorio();
 
+
   List<Data_Hora> Mensagens = [];
   Data_Hora? deletar_itens;
   int? posicao_atual_deletar;
@@ -44,8 +45,10 @@ class _Pagina_ListaState extends State<Pagina_Lista> {
                       Data_Hora item_data_hora = Data_Hora(
                           titulo: qualquercoisa, data_hora: DateTime.now());
                       Mensagens.add(item_data_hora);
+                      
                     });
                     mensagensControlador.clear();
+                    objeto_repositorio.salvarLista(Mensagens);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(204, 125, 14, 243),
